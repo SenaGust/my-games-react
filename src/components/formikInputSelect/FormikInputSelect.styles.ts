@@ -1,4 +1,4 @@
-import { createStyles, makeStyles } from '@mui/material/styles';
+import { createStyles, makeStyles } from '@material-ui/core';
 
 const useFormikInputTextStyles = makeStyles(() =>
   createStyles({
