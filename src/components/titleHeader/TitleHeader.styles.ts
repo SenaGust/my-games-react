@@ -14,8 +14,9 @@ const useTitleHeaderStyles = makeStyles(() =>
       flex: "1",
       flexDirection: "row",
       alignItems: "center",
-      "&>h5": {
-        alignText: "center",
+      "&>h5": { 
+        fontSize: 24,
+        fontWeight: "bold",
       },
     },
     svgIcon: {
