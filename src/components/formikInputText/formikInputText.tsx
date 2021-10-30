@@ -1,8 +1,8 @@
-import TextField from '@material-ui/core/TextField';
-import { Field, FieldProps } from 'formik';
-import React from 'react';
-import InputLabel from '../inputLabel/InputLabel';
-import useFormikInputTextStyles from './formikInputText.styles';
+import TextField from "@material-ui/core/TextField";
+import { Field, FieldProps } from "formik";
+import React from "react";
+import InputLabel from "../inputLabel/InputLabel";
+import useFormikInputTextStyles from "./formikInputText.styles";
 
 interface Props {
   name: string;
@@ -10,7 +10,11 @@ interface Props {
   required?: boolean;
 }
 
-const FormikInputText: React.FunctionComponent<Props> = ({ label, name, required }) => {
+const FormikInputText: React.FunctionComponent<Props> = ({
+  label,
+  name,
+  required,
+}) => {
   const { helperText } = useFormikInputTextStyles();
 
   return (
@@ -18,7 +22,7 @@ const FormikInputText: React.FunctionComponent<Props> = ({ label, name, required
       {({ field, form, meta }: FieldProps) => {
         const hasError = Boolean(meta.touched && meta.error);
 
-        const onBlur = (event) => {
+        const onBlur = (event: any) => {
           const value = event.target.value.trim();
 
           form.setValues({
@@ -38,7 +42,7 @@ const FormikInputText: React.FunctionComponent<Props> = ({ label, name, required
               onChange={field.onChange}
               onBlur={onBlur}
               error={hasError}
-              value={field.value || ''}
+              value={field.value || ""}
               FormHelperTextProps={{ classes: { root: helperText } }}
               name={field.name}
             />
