@@ -1,5 +1,5 @@
 import Game from "../domains/Game";
-import createGame from "../services/createGame";
+import createGame from "../services/CreateGame";
 import { createGameDone } from "../stores/Games/GameEvents";
 
 const CreateGameUseCase = (gameToBeAdded: Game) => {

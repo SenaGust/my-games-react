@@ -1,6 +1,6 @@
 import Game from "../domains/Game";
 
-const editGame = (id: string, gameEdited: Game) => {
+const EditGame = (id: string, gameEdited: Game) => {
   const games = localStorage.getItem("games")
     ? JSON.parse(localStorage.getItem("games") as string)
     : [];
@@ -17,4 +17,4 @@ const editGame = (id: string, gameEdited: Game) => {
   localStorage.setItem("games", JSON.stringify(updatedGames));
 };
 
-export default editGame;
+export default EditGame;
