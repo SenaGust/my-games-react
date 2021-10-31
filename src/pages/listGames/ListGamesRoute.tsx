@@ -2,6 +2,7 @@ import React from "react";
 import PageLayout from "../../components/PageLayout/PageLayout";
 import AddIcon from "@material-ui/icons/Add";
 import FilterListIcon from "@material-ui/icons/FilterList";
+import SearchGames from "./components/searchGames/SearchGames";
 
 const ListGamesRoute: React.FunctionComponent = () => {
   const renderButtons = [
@@ -11,7 +12,7 @@ const ListGamesRoute: React.FunctionComponent = () => {
 
   return (
     <PageLayout title="Listar jogos" isHomePage buttons={renderButtons}>
-      <div>content</div>
+      <SearchGames />
     </PageLayout>
   );
 };

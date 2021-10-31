@@ -27,7 +27,7 @@ const useTitleHeaderStyles = makeStyles(() =>
     titleIcon: {
       width: 35,
       height: 35,
-      margin: '0px 12px',
+      marginRight: 12,
       fill: "blueviolet",
     },
   })
