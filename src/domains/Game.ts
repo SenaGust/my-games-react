@@ -9,4 +9,5 @@ export default interface Game {
   description: string;
   initialDate: Date;
   rating: number;
+  image?: string;
 }
