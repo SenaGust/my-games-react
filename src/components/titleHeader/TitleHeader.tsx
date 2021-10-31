@@ -6,6 +6,7 @@ import useTitleHeaderStyles from "./TitleHeader.styles";
 import { useHistory } from "react-router-dom";
 import { OverridableComponent } from "@material-ui/core/OverridableComponent";
 import { SvgIconTypeMap } from "@material-ui/core/SvgIcon";
+import SportsEsportsIcon from "@material-ui/icons/SportsEsports";
 
 interface ButtonProps {
   toUrl: string;
@@ -24,7 +25,7 @@ const TitleHeader: React.FunctionComponent<Props> = ({
   isHomePage,
 }) => {
   const history = useHistory();
-  const { container, titleStyle, svgIcon } = useTitleHeaderStyles();
+  const { container, titleStyle, svgIcon, titleIcon } = useTitleHeaderStyles();
   const onChangeUrl = useCallback(
     (newUrl: string) => history.push(`/${newUrl}`),
     [history]
@@ -38,7 +39,7 @@ const TitleHeader: React.FunctionComponent<Props> = ({
             <ArrowBackIcon className={svgIcon} />
           </IconButton>
         )}
-
+        {isHomePage && <SportsEsportsIcon className={titleIcon} />}
         <Typography variant="h5">{title}</Typography>
       </div>
       {buttons?.map((button) => (
