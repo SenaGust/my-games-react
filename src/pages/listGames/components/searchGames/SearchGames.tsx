@@ -12,12 +12,17 @@ const ListGamesRoute: React.FunctionComponent = () => {
   const history = useHistory();
   const location = useLocation();
   const { container, fieldContainer, svgbutton } = useSearchGamesStyles();
-  const onSubmit = () =>
-    addQueryParamsToURL(
-      [{ filterBy: GameFilterByEnum.NAME, value: search }],
-      history,
-      location
-    );
+  const onSubmit = () => {
+    if (search) {
+      addQueryParamsToURL(
+        [{ filterBy: GameFilterByEnum.NAME, value: search }],
+        history,
+        location
+      );
+    } else {
+      addQueryParamsToURL([], history, location);
+    }
+  };
   const [search, setSearch] = useState("");
 
   return (
