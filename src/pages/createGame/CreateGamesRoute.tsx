@@ -1,12 +1,13 @@
 import React from "react";
 import PageLayout from "../../components/PageLayout/PageLayout";
+import CreateGameForm from "./components/createGameForm/CreateGameForm";
 
-const EditGamesRoute: React.FunctionComponent = () => {
+const CreateGamesRoute: React.FunctionComponent = () => {
   return (
     <PageLayout title="Criar um jogo">
-      <div>content</div>
+      <CreateGameForm />
     </PageLayout>
   );
 };
 
-export default EditGamesRoute;
+export default CreateGamesRoute;

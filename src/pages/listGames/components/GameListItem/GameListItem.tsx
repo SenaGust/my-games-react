@@ -69,7 +69,7 @@ const GameListItem: React.FunctionComponent<Props> = ({ game }) => {
       <CardContent>
         <Typography variant="body2">Status: {game.status}</Typography>
         <Typography variant="body2">
-          Data inicial: {game.initialDate.toLocaleDateString()}
+          Data inicial: {new Date(game.initialDate).toLocaleDateString()}
         </Typography>
         <Typography variant="body2" component="p">
           Descrição: {game.description}

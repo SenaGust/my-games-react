@@ -2,7 +2,7 @@ import Game from "../domains/Game";
 import listGames from "../services/ListGames";
 import { startListDone, startListGames } from "../stores/Games/GameEvents";
 
-const EditGameUseCase = (id: string, gameToBeEdited: Game) => {
+const ListGameUseCase = () => {
   startListGames();
 
   try {
@@ -13,4 +13,4 @@ const EditGameUseCase = (id: string, gameToBeEdited: Game) => {
   }
 };
 
-export default EditGameUseCase;
+export default ListGameUseCase;
