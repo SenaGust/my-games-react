@@ -1,4 +1,3 @@
-import Game from "../domains/Game";
 import listGames from "../services/ListGames";
 import { startListDone, startListGames } from "../stores/Games/GameEvents";
 

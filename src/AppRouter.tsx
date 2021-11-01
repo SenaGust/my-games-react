@@ -12,7 +12,7 @@ function AppRouter(): JSX.Element {
       <Switch>
         <Route exact path="/" component={ListGamesRoute} />
         <Route path="/create" component={CreateGamesRoute} />
-        <Route path="/edit" component={EditGamesRoute} />
+        <Route path="/edit/:id" component={EditGamesRoute} />
         <Route path="/filter" component={FilterGamesRoute} />
         <Route path="/details/:id" component={DetailsGamesRoute} />
       </Switch>
