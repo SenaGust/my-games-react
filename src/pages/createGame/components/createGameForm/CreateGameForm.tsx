@@ -1,6 +1,5 @@
 import Button from "@material-ui/core/Button";
 import { Formik } from "formik";
-import { uniqueId } from "lodash";
 import React, { useCallback } from "react";
 import { useHistory } from "react-router";
 import { date, object, string } from "yup";
@@ -12,6 +11,7 @@ import GameStatusEnum from "../../../../domains/GameStatusEnum";
 import CreateGameUseCase from "../../../../usecases/CreateGameUseCase";
 import onChangeUrl from "../../../../utils/updateUrl/updateUrl";
 import useCreateGameFormStyles from "./CreateGameForm.styles";
+import { v4 } from "uuid";
 
 const CreateGameForm: React.FunctionComponent = () => {
   const { container } = useCreateGameFormStyles();
@@ -20,7 +20,7 @@ const CreateGameForm: React.FunctionComponent = () => {
   const onSubmit = useCallback(
     (values) => {
       CreateGameUseCase({
-        id: uniqueId(),
+        id: v4(),
         description: values.description,
         name: values.name,
         status: values.status,

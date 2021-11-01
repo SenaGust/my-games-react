@@ -6,17 +6,21 @@ import Typography from "@material-ui/core/Typography";
 import CardHeader from "@material-ui/core/CardHeader";
 import Avatar from "@material-ui/core/Avatar";
 import CardMedia from "@material-ui/core/CardMedia";
-import useGameListItemStyles from "./GameListItem.styles";
-import Button from "@material-ui/core/Button";
+import useGameAllInformationsStyles from "./gameAllInformations.styles";
 import { useHistory } from "react-router";
+import Rating from "@material-ui/lab/Rating";
+import IconButton from "@material-ui/core/IconButton";
+import DeleteIcon from "@material-ui/icons/Delete";
+import EditIcon from "@material-ui/icons/Edit";
+import DeleteGameUseCase from "../../../../usecases/DeleteGameUseCase";
 import onChangeUrl from "../../../../utils/updateUrl/updateUrl";
 
 interface Props {
   game: Game;
 }
 
-const GameListItem: React.FunctionComponent<Props> = ({ game }) => {
-  const { image } = useGameListItemStyles();
+const GameAllInformations: React.FunctionComponent<Props> = ({ game }) => {
+  const { image, ratingStyle } = useGameAllInformationsStyles();
   const history = useHistory();
 
   const renderImage = useMemo(() => {
@@ -67,18 +71,44 @@ const GameListItem: React.FunctionComponent<Props> = ({ game }) => {
         titleTypographyProps={{ variant: "h5" }}
         subheader={game.type}
         avatar={renderImage}
+        action={
+          <>
+            <IconButton
+              onClick={() => {
+                DeleteGameUseCase(game.id);
+                onChangeUrl(``, history);
+              }}
+            >
+              <DeleteIcon />
+            </IconButton>
+            <IconButton onClick={() => onChangeUrl(`edit/${game.id}`, history)}>
+              <EditIcon />
+            </IconButton>
+          </>
+        }
       />
       <CardContent>
-        <Typography variant="body2">Status: {game.status}</Typography>
-        <Button
-          color="primary"
-          onClick={() => onChangeUrl(`details/${game.id}`, history)}
-        >
-          Ver mais informações
-        </Button>
+        <Typography variant="body1">
+          <b>Status:</b> {game.status}
+        </Typography>
+        <Typography variant="body1">
+          <b>Data inicial:</b> {new Date(game.initialDate).toLocaleDateString()}
+        </Typography>
+        <Typography variant="body1" component="p">
+          <b>Rating:</b>
+          <Rating
+            value={Number(game.rating)}
+            className={ratingStyle}
+            readOnly
+          />
+        </Typography>
+        <Typography variant="body1" component="p">
+          <b>Descrição:</b>
+        </Typography>
+        <Typography paragraph>{game.description}</Typography>
       </CardContent>
     </Card>
   );
 };
 
-export default GameListItem;
+export default GameAllInformations;
