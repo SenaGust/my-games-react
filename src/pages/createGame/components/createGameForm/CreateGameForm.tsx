@@ -53,11 +53,7 @@ const CreateGameForm: React.FunctionComponent = () => {
       })}
       onSubmit={onSubmit}
     >
-      {({ handleSubmit, resetForm, dirty }) => {
-        const handleClose = () => {
-          resetForm();
-        };
-
+      {({ handleSubmit, dirty }) => {
         return (
           <div className={container}>
             <FormikInputText label="Nome" name="name" required />
@@ -86,7 +82,7 @@ const CreateGameForm: React.FunctionComponent = () => {
               options={["1", "2", "3", "4", "5"]}
             />
 
-            <Button onClick={handleClose}>Cancelar</Button>
+            <Button onClick={() => onChangeUrl("", history)}>Cancelar</Button>
             <Button onClick={handleSubmit as () => void} disabled={!dirty}>
               Criar
             </Button>

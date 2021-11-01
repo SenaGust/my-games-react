@@ -9,6 +9,8 @@ import CardMedia from "@material-ui/core/CardMedia";
 import useGameListItemStyles from "./GameListItem.styles";
 import Button from "@material-ui/core/Button";
 import CardActions from "@material-ui/core/CardActions";
+import { useHistory } from "react-router";
+import onChangeUrl from "../../../../utils/updateUrl/updateUrl";
 
 interface Props {
   game: Game;
@@ -16,6 +18,7 @@ interface Props {
 
 const GameListItem: React.FunctionComponent<Props> = ({ game }) => {
   const { image } = useGameListItemStyles();
+  const history = useHistory();
 
   const renderImage = useMemo(() => {
     if (game.image) {
@@ -75,7 +78,12 @@ const GameListItem: React.FunctionComponent<Props> = ({ game }) => {
           Descrição: {game.description}
         </Typography>
         <CardActions>
-          <Button color="primary">Ver mais informações</Button>
+          <Button
+            color="primary"
+            onClick={() => onChangeUrl(`details/${game.id}`, history)}
+          >
+            Ver mais informações
+          </Button>
         </CardActions>
       </CardContent>
     </Card>
