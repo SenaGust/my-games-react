@@ -20,8 +20,8 @@ const GameList: React.FunctionComponent = () => {
               if (gameFilter.filterBy === GameFilterByEnum.NAME) {
                 return game.name.includes(gameFilter.value as string);
               }
-              if (gameFilter.filterBy === GameFilterByEnum.CATEGORY) {
-                return game.type === gameFilter.value;
+              if (gameFilter.filterBy === GameFilterByEnum.STATUS) {
+                return game.status === gameFilter.value;
               }
               if (gameFilter.filterBy === GameFilterByEnum.RATING) {
                 return game.rating >= gameFilter.value;

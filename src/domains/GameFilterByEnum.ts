@@ -1,8 +1,8 @@
 enum GameFilterByEnum {
-  CATEGORY = "Categoria",
-  RATING = "Nota",
-  TYPE = "Genero",
-  NAME = "Nome",
+  STATUS = "STATUS",
+  RATING = "RATING",
+  TYPE = "TYPE",
+  NAME = "NAME",
 }
 
 export default GameFilterByEnum;
